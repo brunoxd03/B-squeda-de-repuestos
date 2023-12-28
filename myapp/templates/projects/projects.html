@@ -1,0 +1,30 @@
+
+
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    <h1>Modelo de Ventilador</h1>
+    <div class="buscador">
+     <form method="get">
+        <input type="text" name="buscar" placeholder="Buscar por nombre o descripción" value="{{ request.GET.buscar }}">
+        <button type="submit">Buscar</button>
+        
+     </form>
+    </div>
+    <div class="filter">
+        <button type="submit">Filtrar por</button>
+     </div>
+    <div class="contenedor">
+        {% for project in modelos %}
+            <div class="elemento">
+                <p class="name_project">{{ project.name }}<br></p>
+                <p class="descripcion_project">{{ project.description }}<br></p>
+                <p class="imagen_project"><img src="{{project.imagenes.url}}" alt="{{ project.nombre }}"></p>
+                     
+                
+                <a class="boton_vista" href="{% url 'ver_repuestos' project.name %}">Ver Repuestos</a>
+                <a class="boton_vista" href="{% url 'ver_despiece' project.name %}">Ver Despiece</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

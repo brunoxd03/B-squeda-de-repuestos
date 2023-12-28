@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Project</title>
+    <link rel="stylesheet" href="{% static 'style/main_new.css' %}">
+</head>
+<body>
+    <nav class="sidebar" >
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/projects">Modelo de ventilador</a></li>
+            <li><a href="/task">Buscar repuesto</a></li>
+            <li><a href="/search_ventilador">Despiece de ventilador</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+    <div class="search-icon"> <span class="fas fa-search"></span></div>
+</body>
+</html>
